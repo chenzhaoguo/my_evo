@@ -546,9 +546,9 @@ def trajectories(fig, trajectories, plot_mode=PlotMode.xy, title="",
 
 
 def error_array(fig, err_array, x_array=None, statistics=None, threshold=None,
-                cumulative=False, color='grey', name="error", title="",
+                cumulative=False, color='tab:brown', name="error", title="",
                 xlabel="index", ylabel=None, subplot_arg='111', linestyle="-",
-                marker=None):
+                marker=None, linewidth=1.0):
     """
     high-level function for plotting raw error values of a metric
     :param fig: matplotlib figure
@@ -570,32 +570,37 @@ def error_array(fig, err_array, x_array=None, statistics=None, threshold=None,
     if cumulative:
         if x_array:
             ax.plot(x_array, np.cumsum(err_array), linestyle=linestyle,
-                    marker=marker, color=color, label=name)
+                    marker=marker, color=color, label=name, linewidth=linewidth)
         else:
             ax.plot(np.cumsum(err_array), linestyle=linestyle, marker=marker,
-                    color=color, label=name)
+                    color=color, label=name, linewidth=linewidth)
     else:
         if x_array:
             ax.plot(x_array, err_array, linestyle=linestyle, marker=marker,
-                    color=color, label=name)
+                    color=color, label=name, linewidth=linewidth)
         else:
             ax.plot(err_array, linestyle=linestyle, marker=marker, color=color,
-                    label=name)
+                    label=name, linewidth=linewidth)
     if statistics is not None:
         for stat_name, value in statistics.items():
             color = next(ax._get_lines.prop_cycler)['color']
             if stat_name == "std" and "mean" in statistics:
                 mean, std = statistics["mean"], statistics["std"]
                 ax.axhspan(mean - std / 2, mean + std / 2, color=color,
-                           alpha=0.5, label=stat_name)
+                           alpha=0.3, label=stat_name, linewidth=linewidth)
             else:
-                ax.axhline(y=value, color=color, linewidth=2.0,
-                           label=stat_name)
+                if stat_name == "median" in statistics:
+                    continue
+                else:
+                    ax.axhline(y=value, color=color, linewidth=1.0,
+                               label=stat_name)
     if threshold is not None:
-        ax.axhline(y=threshold, color='red', linestyle='dashed', linewidth=2.0,
+        ax.axhline(y=threshold, color='red', linestyle='dashed', linewidth=1.0,
                    label="threshold")
-    plt.ylabel(ylabel if ylabel else name)
-    plt.xlabel(xlabel)
-    plt.title(title)
-    plt.legend(frameon=True)
+    plt.ylabel(ylabel if ylabel else name, fontsize=10)
+    plt.xlabel(xlabel, fontsize=10)
+    plt.title(title, fontsize=10)
+    plt.tick_params(labelsize=9)
+    plt.legend(frameon=True, loc='upper right', fontsize=8, edgecolor='w')
+    plt.grid(linestyle="--")
     return fig

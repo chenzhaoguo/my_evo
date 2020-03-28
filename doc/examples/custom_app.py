@@ -30,13 +30,13 @@ import matplotlib.pyplot as plt
 print("plotting")
 plot_collection = plot.PlotCollection("Example")
 # metric values
-fig_1 = plt.figure(figsize=(8, 8))
+fig_1 = plt.figure(figsize=(6, 4))
 plot.error_array(fig_1, ape_metric.error, statistics=ape_statistics,
                  name="APE", title=str(ape_metric))
 plot_collection.add_figure("raw", fig_1)
 
 # trajectory colormapped with error
-fig_2 = plt.figure(figsize=(8, 8))
+fig_2 = plt.figure(figsize=(6, 4))
 plot_mode = plot.PlotMode.xy
 ax = plot.prepare_axis(fig_2, plot_mode)
 plot.traj(ax, plot_mode, traj_ref, '--', 'gray', 'reference')
@@ -46,7 +46,7 @@ plot.traj_colormap(
 plot_collection.add_figure("traj (error)", fig_2)
 
 # trajectory colormapped with speed
-fig_3 = plt.figure(figsize=(8, 8))
+fig_3 = plt.figure(figsize=(6, 4))
 plot_mode = plot.PlotMode.xy
 ax = plot.prepare_axis(fig_3, plot_mode)
 speeds = [

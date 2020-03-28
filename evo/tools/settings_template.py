@@ -65,7 +65,7 @@ DEFAULT_SETTINGS_DICT_DOC = {
         "File format supported by matplotlib for exporting plots."
     ),
     "plot_figsize": (
-        [6, 6],
+        [6, 4],
         "The default size of one (sub)plot figure (width, height)."
     ),
     "plot_fontfamily": (
@@ -85,7 +85,7 @@ DEFAULT_SETTINGS_DICT_DOC = {
         "Invert the y-axis of plots."
     ),
     "plot_linewidth": (
-        1.5,
+        1.0,
         "Line width value supported by matplotlib."
     ),
     "plot_multi_cmap": (
@@ -94,11 +94,11 @@ DEFAULT_SETTINGS_DICT_DOC = {
         + "'none' will use the default color palette, see plot_seaborn_palette."
     ),
     "plot_reference_alpha": (
-        0.5,
+        1.0,
         "Alpha value of the reference trajectories in plots."
     ),
     "plot_reference_color": (
-        "black",
+        "red",
         "Color of the reference trajectories in plots."
     ),
     "plot_reference_linestyle": (
@@ -106,13 +106,13 @@ DEFAULT_SETTINGS_DICT_DOC = {
         "matplotlib linestyle of reference trajectories in plots."
     ),
     "plot_seaborn_palette": (
-        "deep6",
+        "bright",
         "Default color cycle, taken from a palette of the seaborn package.\n"
         "Can also be a list of colors.\n"
         "See: https://seaborn.pydata.org/generated/seaborn.color_palette.html"
     ),
     "plot_seaborn_style": (
-        "darkgrid",
+        "whitegrid",
         "Defines the plot background/grid.\n"
         + "Options: 'whitegrid', 'darkgrid', 'white' or 'dark'."
     ),
@@ -125,7 +125,7 @@ DEFAULT_SETTINGS_DICT_DOC = {
         "'xelatex', 'lualatex' or 'pdflatex', see: https://matplotlib.org/users/pgf.html",
     ),
     "plot_trajectory_alpha": (
-        0.75,
+        1.0,
         "Alpha value of non-reference trajectories in plots.",
     ),
     "plot_trajectory_cmap": (
