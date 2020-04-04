@@ -267,21 +267,21 @@ def prepare_axis(fig, plot_mode=PlotMode.xy, subplot_arg="111"):
         ax = fig.add_subplot(subplot_arg)
         ax.axis("equal")
     if plot_mode in {PlotMode.xy, PlotMode.xz, PlotMode.xyz}:
-        xlabel = "$x$ (m)"
+        xlabel = "$x$ [m]"
     elif plot_mode in {PlotMode.yz, PlotMode.yx}:
-        xlabel = "$y$ (m)"
+        xlabel = "$y$ [m]"
     else:
-        xlabel = "$z$ (m)"
+        xlabel = "$z$ [m]"
     if plot_mode in {PlotMode.xy, PlotMode.zy, PlotMode.xyz}:
-        ylabel = "$y$ (m)"
+        ylabel = "$y$ [m]"
     elif plot_mode in {PlotMode.zx, PlotMode.yx}:
-        ylabel = "$x$ (m)"
+        ylabel = "$x$ [m]"
     else:
-        ylabel = "$z$ (m)"
+        ylabel = "$z$ [m]"
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     if plot_mode == PlotMode.xyz:
-        ax.set_zlabel('$z$ (m)')
+        ax.set_zlabel('$z$ [m]')
     if SETTINGS.plot_invert_xaxis:
         plt.gca().invert_xaxis()
     if SETTINGS.plot_invert_yaxis:
@@ -459,11 +459,11 @@ def traj_xyz(axarr, traj, style='-', color='black', label="", alpha=1.0,
     if isinstance(traj, trajectory.PoseTrajectory3D):
         x = traj.timestamps - (traj.timestamps[0]
                                if start_timestamp is None else start_timestamp)
-        xlabel = "$t$ (s)"
+        xlabel = "$t$ [s]"
     else:
         x = range(0, len(traj.positions_xyz))
         xlabel = "index"
-    ylabels = ["$x$ (m)", "$y$ (m)", "$z$ (m)"]
+    ylabels = ["$x$ [m]", "$y$ [m]", "$z$ [m]"]
     for i in range(0, 3):
         axarr[i].plot(x, traj.positions_xyz[:, i], style, color=color,
                       label=label, alpha=alpha)
@@ -494,11 +494,11 @@ def traj_rpy(axarr, traj, style='-', color='black', label="", alpha=1.0,
     if isinstance(traj, trajectory.PoseTrajectory3D):
         x = traj.timestamps - (traj.timestamps[0]
                                if start_timestamp is None else start_timestamp)
-        xlabel = "$t$ (s)"
+        xlabel = "$t$ [s]"
     else:
         x = range(0, len(angles))
         xlabel = "index"
-    ylabels = ["$roll$ (deg)", "$pitch$ (deg)", "$yaw$ (deg)"]
+    ylabels = ["$roll$ [deg]", "$pitch$ [deg]", "$yaw$ [deg]"]
     for i in range(0, 3):
         axarr[i].plot(x, np.rad2deg(angles[:, i]), style, color=color,
                       label=label, alpha=alpha)

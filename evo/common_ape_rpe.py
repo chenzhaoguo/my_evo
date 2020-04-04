@@ -115,7 +115,7 @@ def plot(args, result, traj_ref, traj_est):
             s: result.stats[s]
             for s in SETTINGS.plot_statistics if s not in ("min", "max")
         }, name=result.info["label"], title=result.info["title"],
-        xlabel="$t$ (s)" if seconds_from_start else "index")
+        xlabel="$t$ [s]" if seconds_from_start else "index")
 
     # Plot the values color-mapped onto the trajectory.
     fig2 = plt.figure(figsize=SETTINGS.plot_figsize)

@@ -260,7 +260,7 @@ def run(args):
                 "info", "xlabel"].isnull().values.any():
             index_label = df.loc["info", "xlabel"][0]
         else:
-            index_label = "$t$ (s)" if common_index else "index"
+            index_label = "$t$ [s]" if common_index else "index"
         metric_label = df.loc["info", "label"][0]
 
         plot_collection = plot.PlotCollection(first_title)
