@@ -601,6 +601,6 @@ def error_array(fig, err_array, x_array=None, statistics=None, threshold=None,
     plt.xlabel(xlabel, fontsize=10)
     plt.title(title, fontsize=10)
     plt.tick_params(labelsize=9)
-    plt.legend(frameon=True, loc='upper right', fontsize=8, edgecolor='w')
+    plt.legend(frameon=True, loc='upper right', fontsize=6, edgecolor='w')
     plt.grid(linestyle="--")
     return fig
