@@ -597,10 +597,10 @@ def error_array(fig, err_array, x_array=None, statistics=None, threshold=None,
     if threshold is not None:
         ax.axhline(y=threshold, color='red', linestyle='dashed', linewidth=1.0,
                    label="threshold")
-    plt.ylabel(ylabel if ylabel else name, fontsize=10)
-    plt.xlabel(xlabel, fontsize=10)
-    plt.title(title, fontsize=10)
-    plt.tick_params(labelsize=9)
+    plt.ylabel(ylabel if ylabel else name, fontsize=8)
+    plt.xlabel(xlabel, fontsize=8)
+    plt.title(title, fontsize=9)
+    plt.tick_params(labelsize=7)
     plt.legend(frameon=True, loc='upper right', fontsize=6, edgecolor='w')
     plt.grid(linestyle="--")
     return fig
